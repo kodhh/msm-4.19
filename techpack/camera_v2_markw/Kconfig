@@ -1,0 +1,14 @@
+menu "Camera (Markw)"
+
+config MSMB_CAMERA_V2_MARKW
+	bool "Qualcomm MSM camera and video capture 2.0 support (Markw)"
+	depends on ARCH_QCOM && VIDEO_V4L2 && I2C
+	select MSMB_CAMERA
+	help
+	---help---
+	  Say Y here to enable selecting the video adapters for
+	  Qualcomm msm camera and video capture 2.0, enabling this
+	  adds support for the camera driver stack including sensor, isp
+	  and postprocessing drivers. (Markw)
+
+endmenu

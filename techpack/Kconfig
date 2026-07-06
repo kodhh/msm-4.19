@@ -1,3 +1,4 @@
 source "techpack/camera-legacy/Kconfig"
 source "techpack/camera-legacy-n/Kconfig"
+source "techpack/camera_v2_markw/Kconfig"
 source "techpack/xiaomi-msm8953/Kconfig"
