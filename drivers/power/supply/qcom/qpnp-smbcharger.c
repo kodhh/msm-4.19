@@ -4533,7 +4533,7 @@ static bool is_usbin_uv_high(struct smbchg_chip *chip)
 	return reg &= USBIN_UV_BIT;
 }
 
-#if IS_ENABLED(CONFIG_MACH_XIAOMI_MIDO)
+#if IS_ENABLED(CONFIG_MACH_XIAOMI_MIDO) || defined(CONFIG_MACH_XIAOMI_MARKW)
 static int rerun_apsd(struct smbchg_chip *chip);
 #endif
 #define HVDCP_NOTIFY_MS		2500
@@ -4554,12 +4554,10 @@ static void handle_usb_insertion(struct smbchg_chip *chip)
 	/* usb inserted */
 	read_usb_type(chip, &usb_type_name, &usb_supply_type);
 
-#if IS_ENABLED(CONFIG_MACH_XIAOMI_MIDO)
-	if (xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MIDO) {
-		if (usb_supply_type == POWER_SUPPLY_TYPE_USB_CDP || usb_supply_type == POWER_SUPPLY_TYPE_USB) {
-			rc = rerun_apsd(chip);
-			read_usb_type(chip, &usb_type_name, &usb_supply_type);
-		}
+#if IS_ENABLED(CONFIG_MACH_XIAOMI_MIDO) || defined(CONFIG_MACH_XIAOMI_MARKW)
+	if (usb_supply_type == POWER_SUPPLY_TYPE_USB_CDP || usb_supply_type == POWER_SUPPLY_TYPE_USB) {
+		rc = rerun_apsd(chip);
+		read_usb_type(chip, &usb_type_name, &usb_supply_type);
 	}
 #endif
 
@@ -6049,7 +6047,8 @@ static irqreturn_t batt_hot_handler(int irq, void *_chip)
 
 	if (xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MIDO ||
 	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_SAKURA ||
-	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_VINCE) {
+	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_VINCE ||
+	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MARKW) {
 		
 		int rc;
 		/* set the warm float voltage compensation, set the warm float voltage to 4.1V */
@@ -6081,7 +6080,8 @@ static irqreturn_t batt_cold_handler(int irq, void *_chip)
 
 	if (xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MIDO ||
 	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_SAKURA ||
-	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_VINCE) {
+	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_VINCE ||
+	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MARKW) {
 		
 		int rc;
 		/* set the cool float voltage compensation, set the cool float voltage to 4.4V */
@@ -7168,7 +7168,8 @@ static int smbchg_hw_init(struct smbchg_chip *chip)
 				rc);
 	}
 
-	if (xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MIDO) {
+	if (xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MIDO ||
+	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MARKW) {
 		u8 reg = 0;
 
 		rc = smbchg_sec_masked_write(chip, chip->otg_base + OTG_CFG, 0x0c, 0x8);
