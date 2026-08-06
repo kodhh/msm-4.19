@@ -33,3 +33,18 @@ header-y += msm_isp-legacy-n.h
 header-y += msm_jpeg_dma-legacy-n.h
 header-y += msm_jpeg-legacy-n.h
 endif
+
+ifneq ($(wildcard ../../../techpack/camera_v2_markw/include/uapi/media/Kbuild),)
+header-y += msmb_camera-markw.h
+header-y += msmb_generic_buf_mgr-markw.h
+header-y += msmb_ispif-markw.h
+header-y += msmb_isp-markw.h
+header-y += msmb_pproc-markw.h
+header-y += msm_camera-markw.h
+header-y += msm_cam_sensor-markw.h
+header-y += msm_camsensor_sdk-markw.h
+header-y += msm_fd-markw.h
+header-y += msm_isp-markw.h
+header-y += msm_jpeg_dma-markw.h
+header-y += msm_jpeg-markw.h
+endif

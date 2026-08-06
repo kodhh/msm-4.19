@@ -1,4 +1,5 @@
 ccflags-y += -I $(srctree)/techpack/camera-legacy
+ccflags-y += -I $(srctree)/techpack/camera-legacy/isp
 ccflags-y += -I $(srctree)/techpack/camera-legacy/sensor/io
 ccflags-y += -I $(srctree)/techpack/camera-legacy/common/
 ifeq ($(CONFIG_MSM_ISP_V1),y)

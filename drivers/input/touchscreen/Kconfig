@@ -1364,4 +1364,8 @@ config TOUCHSCREEN_DOUBLETAP2WAKE
 	bool "DoubleTap2Wake for touchscreens"
 	default n
 
+source "drivers/input/touchscreen/GT915L/Kconfig"
+
+source "drivers/input/touchscreen/FT5346/Kconfig"
+
 endif

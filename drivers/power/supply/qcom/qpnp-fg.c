@@ -8033,7 +8033,8 @@ static int fg_common_hw_init(struct fg_chip *chip)
 		(xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MIDO ||
 		 xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_SAKURA ||
 		 xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_VINCE ||
-		 xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_TISSOT) ? 1 : settings[FG_MEM_DELTA_SOC].value,
+		 xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_TISSOT ||
+		 xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_YUREKA2) ? 1 : settings[FG_MEM_DELTA_SOC].value,
 		settings[FG_MEM_DELTA_SOC].offset);
 	
 	if (rc) {
@@ -9213,7 +9214,8 @@ static int __init fg_init(void)
 	if (xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_VINCE ||
 	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_SAKURA ||
 	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_TISSOT ||
-	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MIDO) {
+	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_MIDO ||
+	    xiaomi_msm8953_mach_get() == XIAOMI_MSM8953_MACH_YUREKA2) {
 		
 		settings[FG_MEM_VBAT_EST_DIFF].value = 200;
 	}

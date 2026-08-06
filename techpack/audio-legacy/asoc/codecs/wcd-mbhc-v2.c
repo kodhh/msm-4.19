@@ -1247,6 +1247,12 @@ static irqreturn_t wcd_mbhc_release_handler(int irq, void *data)
             wcd_mbhc_report_plug(mbhc, 1, SND_JACK_HEADSET);
         }
 #endif
+#ifdef CONFIG_MACH_XIAOMI_YUREKA2
+		wcd_mbhc_jack_report(mbhc, &mbhc->headset_jack,
+				0, WCD_MBHC_JACK_MASK);
+		msleep(100);
+		wcd_mbhc_report_plug(mbhc, 1, SND_JACK_HEADSET);
+#endif
 		goto exit;
 
 	}

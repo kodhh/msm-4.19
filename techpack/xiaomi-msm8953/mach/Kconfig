@@ -60,6 +60,13 @@ config MACH_XIAOMI_MARKW
 	help
 	  Support for Xiaomi Redmi 4 (mido).
 
+config MACH_XIAOMI_YUREKA2
+	bool "Yu Yureka 2 (yureka2)"
+	depends on ARCH_MSM8953
+	select MACH_FAMILY_XIAOMI_QRD_MSM8953
+	help
+	  Support for Yu Yureka 2 / wt89536 (yureka2).
+
 config MACH_XIAOMI_YSL
 	bool "Xiaomi Redmi S2 / Y2 (ysl)"
 	depends on ARCH_MSM8953

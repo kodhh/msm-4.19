@@ -35,6 +35,8 @@ static const xiaomi_msm8953_mach_info_t xiaomi_msm8953_mach_table[XIAOMI_MSM8953
 	[XIAOMI_MSM8953_MACH_MIDO] = {XIAOMI_MSM8953_MACH_FAMILY_QRD, "xiaomi,mido", "mido", "Redmi Note 4 / 4x"},
 
 	[XIAOMI_MSM8953_MACH_MARKW] = {XIAOMI_MSM8953_MACH_FAMILY_QRD, "xiaomi,markw", "markw", "Redmi 4 Prime"},
+
+	[XIAOMI_MSM8953_MACH_YUREKA2] = {XIAOMI_MSM8953_MACH_FAMILY_QRD, "xiaomi,yureka2", "yureka2", "Yureka 2 (wt89536)"},
 };
 
 static enum xiaomi_msm8953_mach_types saved_mach = XIAOMI_MSM8953_MACH_UNKNOWN;

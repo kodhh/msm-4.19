@@ -1,0 +1,5 @@
+
+config TOUCHSCREEN_GT915L
+	tristate "GT915L touchscreens"
+	depends on I2C
+	default n
